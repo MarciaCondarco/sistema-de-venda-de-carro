@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+//using mysql.data.mysqlclient -> caso não tenha pode digitar que conecta o banco com c#
 
 namespace sistema2
 {
@@ -91,6 +93,59 @@ namespace sistema2
                 maskedTextBoxCPF.Focus();
 
             }
+
+            //Defina a sua string de conexão com o banco
+
+            string conexaoString = "Server=localhost; Port=3306; Database=bd_sistema; Uid=root; Pwd=;";
+
+            //Variavel que vai definir inserção de registro do banco 
+
+            string query = "INSERT INTO tb_Clientes (NomeCompleto, Cpf, Email, Cep, Numero, Telefone) VALUES " +
+                "(@NomeCompleto, @Cpf, @Email, @Cep, @Numero, @Telefone)";
+
+            //criando uma conexão com o banco 
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                
+                try
+                {
+                    //Abre a conexão 
+                    conexao.Open();
+                    //adicinar os parametros com os valores dos textBox
+                    using (MySqlCommand comando = new MySqlCommand(query,conexao))
+                    {
+                        comando.Parameters.AddWithValue("@NomeCompleto", textBoxNomeCompleto.Text);
+                        comando.Parameters.AddWithValue("@Cpf", maskedTextBoxCPF.Text);
+                        comando.Parameters.AddWithValue("@Email", textBoxEmail.Text);
+                        comando.Parameters.AddWithValue("@Cep", maskedTextBoxCEP.Text);
+                        comando.Parameters.AddWithValue("@Numero", maskedTextBoxNumero.Text);
+                        comando.Parameters.AddWithValue("@Telefone", maskedTextBoxTelefone.Text);
+
+                        //Executa o comando de inserção
+
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Dados inseridos com sucesso!");
+
+                        textBoxNomeCompleto.Text = "";
+                        maskedTextBoxCPF.Text = "";
+                        textBoxEmail.Text = "";
+                        maskedTextBoxCEP.Text = "";
+                        maskedTextBoxNumero.Text = "";
+                        maskedTextBoxTelefone.Text = "";
+                        textBoxNomeCompleto.Focus();
+                    }
+                        
+
+                }
+                catch (Exception ex) 
+                {
+                    //em caso de erro, exiba mensagem do erro 
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+
+
         }
 
         private void buttonFechar_Click(object sender, EventArgs e)
