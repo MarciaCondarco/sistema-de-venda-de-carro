@@ -135,7 +135,7 @@ namespace sistema2
                         maskedTextBoxTelefone.Text = "";
                         textBoxNomeCompleto.Focus();
                     }
-                        
+                        //teste
 
                 }
                 catch (Exception ex) 
