@@ -53,8 +53,6 @@
             this.buttonLimparCampos = new System.Windows.Forms.Button();
             this.richTextBoxAcessorios = new System.Windows.Forms.RichTextBox();
             this.maskedTextBoxChassi = new System.Windows.Forms.MaskedTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.maskedTextBoxValor = new System.Windows.Forms.MaskedTextBox();
             this.labelAlert = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -65,9 +63,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(227, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 37);
+            this.label1.Size = new System.Drawing.Size(298, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastro de Produto";
+            this.label1.Text = "Cadastro de Carros";
             // 
             // label2
             // 
@@ -284,23 +282,6 @@
             this.maskedTextBoxChassi.Size = new System.Drawing.Size(274, 20);
             this.maskedTextBoxChassi.TabIndex = 30;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(49, 354);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 20);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Modelo";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(154, 354);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 20);
-            this.textBox1.TabIndex = 32;
-            // 
             // maskedTextBoxValor
             // 
             this.maskedTextBoxValor.Location = new System.Drawing.Point(154, 320);
@@ -325,8 +306,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelAlert);
             this.Controls.Add(this.maskedTextBoxValor);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.maskedTextBoxChassi);
             this.Controls.Add(this.richTextBoxAcessorios);
             this.Controls.Add(this.buttonLimparCampos);
@@ -387,8 +366,6 @@
         private System.Windows.Forms.Button buttonLimparCampos;
         private System.Windows.Forms.RichTextBox richTextBoxAcessorios;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxChassi;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxValor;
         private System.Windows.Forms.Label labelAlert;
     }

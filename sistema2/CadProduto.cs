@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -83,6 +84,67 @@ namespace sistema2
                 maskedTextBoxCpf.Focus();
 
             }
+
+            //Defina a sua string de conexão com o banco
+
+            string conexaoString = "Server=localhost; Port=3306; Database=bd_sistema; Uid=root; Pwd=;";
+
+            //Variavel que vai definir inserção de registro do banco 
+
+            string query = "INSERT INTO tb_Carros (Proprietario, Telefone, Cpf, Placa, Modelo, Ano, Chassi, Cor, Marca, Valor, Acessorios) VALUES " +
+                "(@Proprietario, @Telefone, @Cpf, @Placa, @Modelo, @Ano, @Chassi, @Cor, @Marca, @Valor, @Acessorios)";
+
+            //criando uma conexão com o banco 
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+
+                try
+                {
+                    //Abre a conexão 
+                    conexao.Open();
+                    //adicinar os parametros com os valores dos textBox
+                    using (MySqlCommand comando = new MySqlCommand(query, conexao))
+                    {
+                        comando.Parameters.AddWithValue("@Proprietario", textBoxProprietario.Text);
+                        comando.Parameters.AddWithValue("@Telefone", maskedTextBoxTelefone.Text);
+                        comando.Parameters.AddWithValue("@Cpf", maskedTextBoxCpf.Text);
+                        comando.Parameters.AddWithValue("@Placa", textBoxPlaca.Text);
+                        comando.Parameters.AddWithValue("@Modelo", textBoxModelo.Text);
+                        comando.Parameters.AddWithValue("@Ano", maskedTextBoxAno.Text);
+                        comando.Parameters.AddWithValue("@Chassi", maskedTextBoxChassi.Text);
+                        comando.Parameters.AddWithValue("@Cor", textBoxCor.Text);
+                        comando.Parameters.AddWithValue("@Marca", textBoxMarca.Text);
+                        comando.Parameters.AddWithValue("@Valor", maskedTextBoxValor.Text);
+                        comando.Parameters.AddWithValue("@Acessorios", richTextBoxAcessorios.Text);
+
+                        //Executa o comando de inserção
+
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Dados inseridos com sucesso!");
+
+                        textBoxProprietario.Text = "";
+                        maskedTextBoxTelefone.Text = "";
+                        maskedTextBoxCpf.Text = "";
+                        textBoxPlaca.Text = "";
+                        textBoxModelo.Text = "";
+                        maskedTextBoxChassi.Text = "";
+                        textBoxCor.Text = "";
+                        maskedTextBoxValor.Text = "";
+                        richTextBoxAcessorios.Text = "";
+                        textBoxProprietario.Focus();
+                    }
+                    //testedsgh
+
+                }
+                catch (Exception ex)
+                {
+                    //em caso de erro, exiba mensagem do erro 
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+
+
+            }
         }
 
         private void buttonLimparCampos_Click(object sender, EventArgs e)
@@ -97,7 +159,6 @@ namespace sistema2
             textBoxCor.Text = "";
             textBoxMarca.Text = "";
             maskedTextBoxValor.Text = "";
-            textBox1.Text = "";
             richTextBoxAcessorios.Text = "";
             textBoxProprietario.Focus();
         }
