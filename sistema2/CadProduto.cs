@@ -87,12 +87,12 @@ namespace sistema2
 
             //Defina a sua string de conexão com o banco
 
-            string conexaoString = "Server=localhost; Port=3306; Database=bd_sistema; Uid=root; Pwd=;";
+            string conexaoString = "Server=localhost; Port=3306; Database=db_sistema; Uid=root; Pwd=;";
 
             //Variavel que vai definir inserção de registro do banco 
 
-            string query = "INSERT INTO tb_Carros (Proprietario, Telefone, Cpf, Placa, Modelo, Ano, Chassi, Cor, Marca, Valor, Acessorios) VALUES " +
-                "(@Proprietario, @Telefone, @Cpf, @Placa, @Modelo, @Ano, @Chassi, @Cor, @Marca, @Valor, @Acessorios)";
+            string query = "INSERT INTO tb_Carros (Proprietario, Telefone, Cpf, Placa, Modelo, Ano, Chassi, Cor, Marca, Valor, Acessorio) VALUES " +
+                "(@Proprietario, @Telefone, @Cpf, @Placa, @Modelo, @Ano, @Chassi, @Cor, @Marca, @Valor, @Acessorio)";
 
             //criando uma conexão com o banco 
 
@@ -116,7 +116,7 @@ namespace sistema2
                         comando.Parameters.AddWithValue("@Cor", textBoxCor.Text);
                         comando.Parameters.AddWithValue("@Marca", textBoxMarca.Text);
                         comando.Parameters.AddWithValue("@Valor", maskedTextBoxValor.Text);
-                        comando.Parameters.AddWithValue("@Acessorios", richTextBoxAcessorios.Text);
+                        comando.Parameters.AddWithValue("@Acessorio", richTextBoxAcessorios.Text);
 
                         //Executa o comando de inserção
 
