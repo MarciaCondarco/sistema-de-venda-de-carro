@@ -33,5 +33,17 @@ namespace sistema2
             CadProduto form = new CadProduto();
             form.ShowDialog();
         }
+
+        private void buttonGerenciamentoCliente_Click(object sender, EventArgs e)
+        {
+            Gerenciamento_Clientes form = new Gerenciamento_Clientes();
+            form.ShowDialog();
+        }
+
+        private void buttonConsultarProduto_Click(object sender, EventArgs e)
+        {
+            Gerenciamento_Carros form = new Gerenciamento_Carros();
+            form.ShowDialog();
+        }
     }
 }

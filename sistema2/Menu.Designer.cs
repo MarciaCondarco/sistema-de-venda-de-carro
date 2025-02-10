@@ -30,12 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonGerenciamentoCliente = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.buttonCadastrarProduto = new System.Windows.Forms.Button();
-            this.buttonExcluirProduto = new System.Windows.Forms.Button();
             this.buttonAlterarProduto = new System.Windows.Forms.Button();
             this.buttonConsultarProduto = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -61,25 +59,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonGerenciamentoCliente
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(23, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 55);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Consultar Cliente";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(23, 153);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 63);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Excluir Cliente";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonGerenciamentoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGerenciamentoCliente.Location = new System.Drawing.Point(23, 190);
+            this.buttonGerenciamentoCliente.Name = "buttonGerenciamentoCliente";
+            this.buttonGerenciamentoCliente.Size = new System.Drawing.Size(200, 55);
+            this.buttonGerenciamentoCliente.TabIndex = 2;
+            this.buttonGerenciamentoCliente.Text = "Gerenciamento Cliente";
+            this.buttonGerenciamentoCliente.UseVisualStyleBackColor = true;
+            this.buttonGerenciamentoCliente.Click += new System.EventHandler(this.buttonGerenciamentoCliente_Click);
             // 
             // button4
             // 
@@ -111,15 +100,6 @@
             this.buttonCadastrarProduto.UseVisualStyleBackColor = true;
             this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
             // 
-            // buttonExcluirProduto
-            // 
-            this.buttonExcluirProduto.Location = new System.Drawing.Point(260, 154);
-            this.buttonExcluirProduto.Name = "buttonExcluirProduto";
-            this.buttonExcluirProduto.Size = new System.Drawing.Size(186, 63);
-            this.buttonExcluirProduto.TabIndex = 7;
-            this.buttonExcluirProduto.Text = "Excluir Produto";
-            this.buttonExcluirProduto.UseVisualStyleBackColor = true;
-            // 
             // buttonAlterarProduto
             // 
             this.buttonAlterarProduto.Location = new System.Drawing.Point(260, 279);
@@ -131,12 +111,13 @@
             // 
             // buttonConsultarProduto
             // 
-            this.buttonConsultarProduto.Location = new System.Drawing.Point(260, 222);
+            this.buttonConsultarProduto.Location = new System.Drawing.Point(260, 191);
             this.buttonConsultarProduto.Name = "buttonConsultarProduto";
             this.buttonConsultarProduto.Size = new System.Drawing.Size(186, 54);
             this.buttonConsultarProduto.TabIndex = 9;
-            this.buttonConsultarProduto.Text = "Consultar Produto";
+            this.buttonConsultarProduto.Text = "Gerenciamento Carros";
             this.buttonConsultarProduto.UseVisualStyleBackColor = true;
+            this.buttonConsultarProduto.Click += new System.EventHandler(this.buttonConsultarProduto_Click);
             // 
             // Menu
             // 
@@ -145,12 +126,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonConsultarProduto);
             this.Controls.Add(this.buttonAlterarProduto);
-            this.Controls.Add(this.buttonExcluirProduto);
             this.Controls.Add(this.buttonCadastrarProduto);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonGerenciamentoCliente);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Menu";
@@ -165,12 +144,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonGerenciamentoCliente;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button buttonCadastrarProduto;
-        private System.Windows.Forms.Button buttonExcluirProduto;
         private System.Windows.Forms.Button buttonAlterarProduto;
         private System.Windows.Forms.Button buttonConsultarProduto;
     }
