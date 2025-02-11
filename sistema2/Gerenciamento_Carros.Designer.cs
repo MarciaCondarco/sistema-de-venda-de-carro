@@ -62,6 +62,7 @@
             this.buttonRemoverCarros.TabIndex = 2;
             this.buttonRemoverCarros.Text = "Remover Carros";
             this.buttonRemoverCarros.UseVisualStyleBackColor = true;
+            this.buttonRemoverCarros.Click += new System.EventHandler(this.buttonRemoverCarros_Click);
             // 
             // buttonFechar
             // 

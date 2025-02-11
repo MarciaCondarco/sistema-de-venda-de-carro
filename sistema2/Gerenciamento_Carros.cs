@@ -57,5 +57,60 @@ namespace sistema2
                 MessageBox.Show("Erro ao listar os carros: " + ex.Message);
             }
         }
+
+        private void buttonRemoverCarros_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewGerenciamentoCarros.SelectedRows.Count > 0)
+            {
+                //ele pega ID do cliente da linha selecionada
+                int carroID = Convert.ToInt32(dataGridViewGerenciamentoCarros.SelectedRows[0].Cells["id"].Value);
+
+                DialogResult result = MessageBox.Show("Tem certeza que deseja excluir este carro?", "Confirmar Exclusão", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    string connectionString = "Server=localhost; Port=3306; Database=db_sistema; Uid=root; Pwd=;";
+
+                    try
+                    {
+                        //Cria uma conexão com o banco de dados MySql
+                        using (MySqlConnection consulta = new MySqlConnection(connectionString))
+                        {
+                            //Abre a conexão 
+                            consulta.Open();
+
+                            //Consulta SQL para selecionar os clientes 
+                            string listagem = "DELETE FROM tb_carros WHERE id = @id";
+
+                            using (MySqlCommand cmd = new MySqlCommand(listagem, consulta))
+                            {
+                                cmd.Parameters.AddWithValue("id", carroID);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Carro excluido com sucesso!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Falha ao excluir o carro");
+
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex.Message);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecione um carro para excluir");
+                }
+
+            }
+        }
     }
 }
